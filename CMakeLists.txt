@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.12)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX20_STANDARD_COMPILE_OPTION "-std:c++latest")
+set(CMAKE_CXX20_EXTENSION_COMPILE_OPTION "-std:c++latest")
+add_definitions(-DNOMINMAX)
+project(sln)
+find_package(pxr REQUIRED)
+find_package(argparse CONFIG REQUIRED)
+add_subdirectory(xpsusd)
+
