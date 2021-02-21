@@ -76,8 +76,8 @@ int main(int argc, char** argv) {
       extent.UnionWith(positions[i]);
     }
     VtVec3fArray extent_arr({extent.GetMin(), extent.GetMax()});
-    mesh.GetExtentAttr().Set(extent_arr);
-    mesh.GetPointsAttr().Set(positions);
+    mesh.CreateExtentAttr().Set(extent_arr);
+    mesh.CreatePointsAttr().Set(positions);
 
     assert(xps_mesh.indices.size() % 3 == 0);
     const auto face_count = xps_mesh.indices.size() / 3;
@@ -90,8 +90,8 @@ int main(int argc, char** argv) {
         indices[last + i] = xps_mesh.indices[last + i];
       last += count;
     }
-    mesh.GetFaceVertexIndicesAttr().Set(indices);
-    mesh.GetFaceVertexCountsAttr().Set(face_counts);
+    mesh.CreateFaceVertexIndicesAttr().Set(indices);
+    mesh.CreateFaceVertexCountsAttr().Set(face_counts);
   }
   return result;
 }
